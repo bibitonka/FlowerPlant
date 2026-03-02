@@ -8,19 +8,23 @@ import Layout from './Layout';
 
 import './App.css'
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: "myplants", element: <MyPlants /> },
+        { path: "update/:id", element: <Update /> },
+        { path: "about", element: <About /> },
+      ],
+    },
+  ],
   {
-    path: "/",
     basename: "/FlowerPlant",
-    element: <Layout/>,
-    children: [
-      { index: true, element: <Home />},
-      { path: "/myplants", element: <MyPlants />},
-      { path: "/update/:id", element: <Update />},
-      { path: "/about", element: <About />},
-    ],
-  },
-]);
+  }
+);
 
 export default function App(){
     return <RouterProvider router={router} />;
