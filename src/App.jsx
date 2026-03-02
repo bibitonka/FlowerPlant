@@ -11,6 +11,7 @@ import './App.css'
 const router = createBrowserRouter([
   {
     path: "/",
+    basename: "/FlowerPlant",
     element: <Layout/>,
     children: [
       { index: true, element: <Home />},
